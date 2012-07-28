@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  p Welcome to Vnpm.
+  h2= path
+  ul.packages
+  - for (var pkg in packages)
+    li
+      //- a(href='/!##{pkg}@#{packages[pkg]}') #{pkg}@#{packages[pkg]}
+      a(href='/#{pkg}@#{packages[pkg]}', target="_blank") #{pkg}@#{packages[pkg]}

@@ -1,0 +1,21 @@
+{
+  "name": "npmV",
+  "version": "0.0.1",
+  "description": "npmV is an 'asy-to-use' visual interface for NPM.",
+  "author": "FungDun Cai cfddream@gmail.com",
+  "repository": "",
+  "license": "MIT",
+  "keywords": [
+    "npm",
+    "tide",
+    "npm-tide"
+  ],
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.0rc1",
+    "jade": "*"
+  },
+  "engines": { "node": ">= 0.8.0" }
+}
