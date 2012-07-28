@@ -1,7 +1,7 @@
 {
   "name": "npmV",
   "version": "0.0.1",
-  "description": "npmV is an 'asy-to-use' visual interface for NPM.",
+  "description": "npmV is an 'easy-to-use' visual interface for NPM.",
   "author": "FungDun Cai cfddream@gmail.com",
   "repository": "",
   "license": "MIT",
