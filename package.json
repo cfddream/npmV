@@ -3,12 +3,11 @@
   "version": "0.0.1",
   "description": "npmV is an 'easy-to-use' visual interface for NPM.",
   "author": "FungDun Cai cfddream@gmail.com",
-  "repository": "",
+  "repository": "https://github.com/cfddream/npmV.git",
   "license": "MIT",
   "keywords": [
-    "npm",
-    "tide",
-    "npm-tide"
+    "npmV",
+    "npm visual interface"
   ],
   "scripts": {
     "start": "node app"
