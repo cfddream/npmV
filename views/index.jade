@@ -1,8 +1,9 @@
 extends layout
 
 block content
-  p Welcome to Vnpm.
+  h1 Welcome to Vnpm.
   h2= path
+  if packages.length
   ul.packages
   - for (var pkg in packages)
     li

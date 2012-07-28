@@ -16,5 +16,6 @@
     "express": "3.0.0rc1",
     "jade": "*"
   },
+  "bin": "./bin/npmv-cli.js",
   "engines": { "node": ">= 0.8.0" }
 }

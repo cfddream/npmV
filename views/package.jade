@@ -1,5 +1,12 @@
 extends layout
 
 block content
-  p Welcome to npmV.
-  h2 #{path} #{name}
+  h1 Welcome to npmV.
+  h2= name
+  p= path
+  if packages.length
+  ul.packages
+  - for (var pkg in packages)
+    li
+      //- a(href='/!##{pkg}@#{packages[pkg]}') #{pkg}@#{packages[pkg]}
+      a(href='/#{pkg}@#{packages[pkg]}', target="_blank") #{pkg}@#{packages[pkg]}
