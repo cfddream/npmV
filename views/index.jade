@@ -2,10 +2,9 @@ extends layout
 
 block content
   h1 Welcome to npmV.
-  h2= path
-  if packages.length
+  h2= _path
+  if dependencies
   ul.packages
-  - for (var pkg in packages)
+  - for (var pkg in dependencies)
     li
-      //- a(href='/!##{pkg}@#{packages[pkg]}') #{pkg}@#{packages[pkg]}
-      a(href='/#{pkg}@#{packages[pkg]}', target="_blank") #{pkg}@#{packages[pkg]}
+      a(href='/package/#{pkg}/#{_hash}') #{pkg}@#{dependencies[pkg]}

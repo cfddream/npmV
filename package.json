@@ -1,7 +1,7 @@
 {
   "name": "npmv",
   "version": "0.0.1",
-  "description": "npmV is an 'easy-to-use' visual interface for NPM.",
+  "description": "npmV is an \"easy-to-use\" visual interface for NPM.",
   "author": "FungDun Cai cfddream@gmail.com",
   "repository": "https://github.com/cfddream/npmV.git",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "npm visual interface"
   ],
   "scripts": {
-    "start": "node app"
+    "start": "NODE_ENV=development node app"
   },
   "dependencies": {
     "express": "3.0.0rc1",

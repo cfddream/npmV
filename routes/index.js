@@ -1,44 +1,41 @@
-
 /*
  * GET home page.
  */
-var npmV = require('../lib/npmV.js')
-  , fs = require('fs');
+var npmv = require('../lib/npmv')
+  , path = require('path')
+  , join = path.join
+  , node = require('../models/node')
+  , md5 = require('../lib/util').md5
+  , fs = require('fs')
+  , cache = {};
 
 exports.index = function(req, res){
+  var path = node.globalDir
+    , hash = md5(node.globalDir);
 
-  npmV.list(function (data) {
-    res.render('index', {
-      title: 'npmV is a visual interface for NPM.',
-      packages: data.dependencies,
-      path: npmV.rootPath = npmV.rootPath || data.path,
-      realPath: data.path,
-      depth: 0
-    });
+  !(hash in cache) && (cache[hash] = path);
+
+  node.list(path, function (data) {
+    data._hash = hash;
+    data._path = path;
+    res.render('index', data);
   });
-
 };
 
 exports.package = function (req, res) {
   var package = req.params.package
-    , version = req.params.version;
+    , parentHash = req.params.hash
+    , parentPath = cache[parentHash]
+    , path = parentPath === node.globalDir
+        ? join(parentPath, package)
+        : join(parentPath, 'node_modules', package)
+    , hash = md5(path);
 
-  var fullpackage = package + '@' + version;
+  !(hash in cache) && (cache[hash] = path);
 
-  npmV.package(fullpackage, function (data) {
-    var packagejson = require(npmV.rootPath + '/' + package + '/package.json');
-
-    res.render('package', {
-      title: 'npmV is a visual interface for NPM.',
-      name: fullpackage,
-      packages: packagejson.dependencies || [],
-      path: npmV.rootPath + '/' + package + '/node_modules',
-      //packages: data.dependencies,
-      //path: data.path,
-      //realPath: data.path,
-      depth: 1
-    });
-
+  node.list(path, function (data) {
+    data._hash = hash;
+    data._path = path;
+    res.render('package', data);
   });
-
 };
